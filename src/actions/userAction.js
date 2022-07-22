@@ -1,16 +1,14 @@
-import axios from "axios";
+import axios from 'axios';
 
-export const GET_USERS_LIST = "GET_USERS_LIST";
-export const GET_USER_DETAIL = "GET_USER_DETAIL";
-export const POST_USER_CREATE = "POST_USER_CREATE";
-export const PUT_USER_EDIT = "PUT_USER_EDIT";
-
-
+export const GET_USERS_LIST = 'GET_USERS_LIST';
+export const GET_USER_DETAIL = 'GET_USER_DETAIL';
+export const POST_USER_CREATE = 'POST_USER_CREATE';
+export const PUT_USER_EDIT = 'PUT_USER_EDIT';
 
 export const getUsersList = () => {
   return (dispatch) => {
     axios
-      .get("https://my-json-server.typicode.com/afifbasya/reactjs-redux/users")
+      .get('https://my-json-server.typicode.com/afifbasya/reactjs-redux/users')
       .then(function (response) {
         dispatch({
           type: GET_USERS_LIST,
@@ -36,7 +34,7 @@ export const getUserDetail = (id) => {
   return (dispatch) => {
     axios
       .get(
-        "https://my-json-server.typicode.com/afifbasya/reactjs-redux/users/" +
+        'https://my-json-server.typicode.com/afifbasya/reactjs-redux/users/' +
           id
       )
       .then(function (response) {
@@ -64,12 +62,12 @@ export const postUserCreate = (data) => {
   return (dispatch) => {
     axios
       .post(
-         "http://my-json-server.typicode.com/afifbasya/reactjs-redux/users",
+        'http://my-json-server.typicode.com/afifbasya/reactjs-redux/users',
         data
       )
       .then(function (response) {
         console.log(response);
-        
+
         dispatch({
           type: POST_USER_CREATE,
           payload: {
@@ -94,12 +92,13 @@ export const putUserUpdate = (data, id) => {
   return (dispatch) => {
     axios
       .put(
-         "http://my-json-server.typicode.com/afifbasya/reactjs-redux/users/"+id,
+        'http://my-json-server.typicode.com/afifbasya/reactjs-redux/users/' +
+          id,
         data
       )
       .then(function (response) {
         console.log(response);
-        
+
         dispatch({
           type: PUT_USER_EDIT,
           payload: {
@@ -120,24 +119,20 @@ export const putUserUpdate = (data, id) => {
   };
 };
 
-
 export const deleteUser = (id) => {
   return (dispatch) => {
     axios
       .delete(
-         "http://my-json-server.typicode.com/afifbasya/reactjs-redux/users/"+id
+        'http://my-json-server.typicode.com/afifbasya/reactjs-redux/users/' + id
       )
       .then(function (response) {
         console.log(response);
-        
       })
       .catch(function (error) {
         console.log(error);
-        
       });
   };
 };
-
 
 export const deleteDataUser = () => {
   return (dispatch) => {
@@ -148,7 +143,6 @@ export const deleteDataUser = () => {
         errorMessage: false,
       },
     });
-
 
     dispatch({
       type: POST_USER_CREATE,

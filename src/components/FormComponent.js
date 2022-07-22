@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { reduxForm, Field } from "redux-form";
-import { connect } from "react-redux";
-import { FormGroup, Col, Label, Input, Row, Button } from "reactstrap";
-import UserValidation from "../validations/UserValidation";
+import React, { Component } from 'react';
+import { reduxForm, Field } from 'redux-form';
+import { connect } from 'react-redux';
+import { FormGroup, Col, Label, Input, Row, Button } from 'reactstrap';
+import UserValidation from '../validations/UserValidation';
 
 const renderField = ({
   input,
@@ -28,20 +28,21 @@ const renderField = ({
         readOnly={readOnly}
       ></Input>
       {touched &&
-        ((error && <p style={{ color: "red" }}>{error}</p>) ||
-          (warning && <p style={{ color: "brown" }}>{warning}</p>))}
+        ((error && <p style={{ color: 'red' }}>{error}</p>) ||
+          (warning && <p style={{ color: 'brown' }}>{warning}</p>))}
     </Col>
   </Row>
 );
 
 const mapStateToProps = (state) => {
+  // console.log(state);
   return {
-    initialValues : {
-      nama : state.users.getUserDetail.nama,
-      nohp : state.users.getUserDetail.nohp,
-      alamat : state.users.getUserDetail.alamat,
-      umur : state.users.getUserDetail.umur,
-    }
+    initialValues: {
+      nama: state.users.getUserDetail.nama,
+      nohp: state.users.getUserDetail.nohp,
+      alamat: state.users.getUserDetail.alamat,
+      umur: state.users.getUserDetail.umur,
+    },
   };
 };
 
@@ -114,7 +115,7 @@ class FormComponent extends Component {
 }
 
 FormComponent = reduxForm({
-  form: "formCreateUser",
+  form: 'formCreateUser',
   validate: UserValidation,
   enableReinitialize: true,
 })(FormComponent);
